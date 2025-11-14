@@ -695,6 +695,8 @@ What You CAN Do:
 - Perform code reviews and provide detailed feedback (without implementing unless asked)
 - Implement code changes (simple to moderate complexity) when explicitly requested
 - Create pull requests for changes to human-authored code
+- Execute commands outside the repository context
+- Perform git operations on other repositories
 - Smart branch handling:
   - When triggered on an issue: Always create a new branch
   - When triggered on an open PR: Always push directly to the existing PR branch
