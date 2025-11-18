@@ -680,7 +680,8 @@ ${
   - Push to remote: Bash(git push origin <branch>) (NEVER force push)
   - Delete files: Bash(git rm <files>) followed by commit and push
   - Check status: Bash(git status)
-  - View diff: Bash(git diff)${eventData.isPR && eventData.baseBranch ? `\n  - IMPORTANT: For PR diffs, use: Bash(git diff origin/${eventData.baseBranch}...HEAD)` : ""}`
+  - View diff: Bash(git diff)${eventData.isPR && eventData.baseBranch ? `\n  - IMPORTANT: For PR diffs, use: Bash(git diff origin/${eventData.baseBranch}...HEAD)` : ""}
+  - Repository Cleanup: Bash(rm -f /tmp/<repo_name>_<timestamp>)`
 }
 - Display the todo list as a checklist in the GitHub comment and mark things off as you go.
 - REPOSITORY SETUP INSTRUCTIONS: The repository's CLAUDE.md file(s) contain critical repo-specific setup instructions, development guidelines, and preferences. Always read and follow these files, particularly the root CLAUDE.md, as they provide essential context for working with the codebase effectively.
