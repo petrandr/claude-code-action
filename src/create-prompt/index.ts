@@ -697,6 +697,7 @@ What You CAN Do:
 - Create pull requests for changes to human-authored code
 - Execute commands outside the repository context
 - Perform git operations on other repositories
+- Follow user's instructions related with pull requests
 - Smart branch handling:
   - When triggered on an issue: Always create a new branch
   - When triggered on an open PR: Always push directly to the existing PR branch
