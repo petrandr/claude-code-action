@@ -681,6 +681,7 @@ ${
   - Delete files: Bash(git rm <files>) followed by commit and push
   - Check status: Bash(git status)
   - View diff: Bash(git diff)${eventData.isPR && eventData.baseBranch ? `\n  - IMPORTANT: For PR diffs, use: Bash(git diff origin/${eventData.baseBranch}...HEAD)` : ""}
+  - Create Pull Request: Bash(gh pr create --repo <owner>/<repo_name> --title "<title>" --body "<desciptive_commit_message>" --base <base_branch>)
   - Repository Cleanup: Bash(rm -f /tmp/<repo_name>_<timestamp>)`
 }
 - Display the todo list as a checklist in the GitHub comment and mark things off as you go.
