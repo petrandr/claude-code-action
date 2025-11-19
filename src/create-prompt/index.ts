@@ -674,7 +674,7 @@ ${
   - mcp__github_file_ops__commit_files: {"files": ["path/to/file1.js", "path/to/file2.py"], "message": "feat: add new feature"}
   - mcp__github_file_ops__delete_files: {"files": ["path/to/old.js"], "message": "chore: remove deprecated file"}`
     : `- Use git commands via the Bash tool for version control (remember that you have access to these git commands):
-  - Clone target repository: Bash(gh repo clone <owner>/<repo_name> ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp> -- -b <base_branch_name>)
+  - Clone target repository: Bash(gh repo clone <owner>/<repo_name> ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp> -- -b ${eventData.baseBranch})
   - Stage files: Bash(git add <files>)
   - Commit changes: Bash(git commit -m "<message>")
   - Push to remote: Bash(git push origin <branch>) (NEVER force push)
@@ -765,13 +765,6 @@ export async function createPrompt(
       context.inputs.useCommitSigning,
       mode,
     );
-    
-    console.log("================== GENERATE PROMPT DATA ====================");
-    console.log(prepareContext);
-    console.log(githubData);
-    console.log(context.inputs.useCommitSigning);
-    console.log(mode);
-    console.log("============================================================");
 
     // Log the final prompt to console
     console.log("===== FINAL PROMPT =====");
