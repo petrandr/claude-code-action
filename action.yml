@@ -19,6 +19,9 @@ inputs:
   base_branch:
     description: "The branch to use as the base/source when creating new branches (defaults to repository default branch)"
     required: false
+  target_repo_base_branch:
+    description: "The branch to use as the base/source when creating new branches on the target repository (defaults to repository default branch)"
+    required: true
   branch_prefix:
     description: "The prefix to use for Claude branches (defaults to 'claude/', use 'claude-' for dash format)"
     required: false
@@ -161,6 +164,7 @@ runs:
         ASSIGNEE_TRIGGER: ${{ inputs.assignee_trigger }}
         LABEL_TRIGGER: ${{ inputs.label_trigger }}
         BASE_BRANCH: ${{ inputs.base_branch }}
+        TARGET_REPO_BASE_BRANCH: ${{ inputs.target_repo_base_branch }}
         BRANCH_PREFIX: ${{ inputs.branch_prefix }}
         OVERRIDE_GITHUB_TOKEN: ${{ inputs.github_token }}
         ALLOWED_BOTS: ${{ inputs.allowed_bots }}
