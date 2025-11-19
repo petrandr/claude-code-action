@@ -571,7 +571,7 @@ Your task is to analyze the context, understand the request, and provide helpful
 
 IMPORTANT CLARIFICATIONS:
 - When asked to "review" code, read the code and provide review feedback (do not implement changes unless explicitly asked)${eventData.isPR ? "\n- For PR reviews: Your review will be posted when you update the comment. Focus on providing comprehensive review feedback." : ""}${eventData.isPR && eventData.baseBranch ? `\n- When comparing PR changes, use 'origin/${eventData.baseBranch}' as the base reference (NOT 'main' or 'master')` : ""}
-- When asked to performe and does not clearly specify if they want a hotfix or a feature, terminate the process and ask them to clarify what they want
+- When asked to performe code changes and does not clearly specify if they want a hotfix or a feature, terminate the process and ask them to clarify what they want
 - Your console outputs and tool results are NOT visible to the user
 - ALL communication happens through your GitHub comment - that's how users see your feedback, answers, and progress. your normal responses are not seen.
 
