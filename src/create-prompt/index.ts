@@ -765,6 +765,13 @@ export async function createPrompt(
       context.inputs.useCommitSigning,
       mode,
     );
+    
+    console.log("================== GENERATE PROMPT DATA ====================");
+    console.log(prepareContext);
+    console.log(githubData);
+    console.log(context.inputs.useCommitSigning);
+    console.log(mode);
+    console.log("============================================================");
 
     // Log the final prompt to console
     console.log("===== FINAL PROMPT =====");
