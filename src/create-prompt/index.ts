@@ -507,6 +507,13 @@ Images have been downloaded from GitHub comments and saved to disk. Their file p
     ? formatBody(contextData.body, imageUrlMap)
     : "No description provided";
 
+  console.log('======================================================');
+  console.log(context);
+  console.log(contextData);
+  console.log(githubData);
+  console.log(eventData);
+  console.log('======================================================');
+
   let promptContent = `You are Claude, an AI assistant designed to help with GitHub issues and pull requests. Think carefully as you analyze the context and respond appropriately. Here's the context for your current task:
 
 <formatted_context>
