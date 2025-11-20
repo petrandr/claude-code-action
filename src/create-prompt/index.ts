@@ -681,15 +681,15 @@ ${
   - mcp__github_file_ops__commit_files: {"files": ["path/to/file1.js", "path/to/file2.py"], "message": "feat: add new feature"}
   - mcp__github_file_ops__delete_files: {"files": ["path/to/old.js"], "message": "chore: remove deprecated file"}`
     : `- Use git commands via the Bash tool for version control (remember that you have access to these git commands):
-  - Clone target repository: Bash(gh repo clone <owner>/<repo_name> ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp> -- -b ${process.env.TARGET_REPO_BASE_BRANCH}) (ALWAYS use -b with specified target branch)
+${!eventData.isPR ? `- Clone target repository: Bash(gh repo clone <owner>/<repo_name> ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp> -- -b ${process.env.TARGET_REPO_BASE_BRANCH}) (ALWAYS use -b with specified target branch)` : ""}
   - Stage files: Bash(git add <files>)
   - Commit changes: Bash(git commit -m "<message>")
   - Push to remote: Bash(git push origin <branch>) (NEVER force push)
   - Delete files: Bash(git rm <files>) followed by commit and push
   - Check status: Bash(git status)
   - View diff: Bash(git diff)${eventData.isPR && eventData.baseBranch ? `\n  - IMPORTANT: For PR diffs, use: Bash(git diff origin/${eventData.baseBranch}...HEAD)` : ""}
-  - Create Pull Request: Bash(gh pr create --repo <owner>/<repo_name> --title "<title>" --body "<desciptive_commit_message>" --base <base_branch>)
-  - Repository Cleanup: Bash(rm -f ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp>)`
+${!eventData.isPR ? `- Create Pull Request: Bash(gh pr create --repo <owner>/<repo_name> --title "<title>" --body "<desciptive_commit_message>" --base ${process.env.TARGET_REPO_BASE_BRANCH})` : ""}
+${!eventData.isPR ? `- Repository Cleanup: Bash(rm -f ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp>)` : ""}`
 }
 - Display the todo list as a checklist in the GitHub comment and mark things off as you go.
 - REPOSITORY SETUP INSTRUCTIONS: The repository's CLAUDE.md file(s) contain critical repo-specific setup instructions, development guidelines, and preferences. Always read and follow these files, particularly the root CLAUDE.md, as they provide essential context for working with the codebase effectively.
