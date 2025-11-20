@@ -674,6 +674,7 @@ Important Notes:
 - You communicate exclusively by editing your single comment - not through any other means.
 - Use this spinner HTML when work is in progress: <img src="https://github.com/user-attachments/assets/5ac382c7-e004-429b-8e35-7feb3e8f9c6f" width="14px" height="14px" style="vertical-align: middle; margin-left: 4px;" />
 ${eventData.isPR && !eventData.claudeBranch ? `- Always push to the existing branch when triggered on a PR.` : `- IMPORTANT: You are already on the correct branch (${eventData.claudeBranch || "the created branch"}). Never create new branches when triggered on issues or closed/merged PRs.`}
+${!eventData.isPR ? `- Never push directly to "dev" or "master" branches. Always use the example below to create a pull request` : ""}
 ${
   useCommitSigning
     ? `- Use mcp__github_file_ops__commit_files for making commits (works for both new and existing files, single or multiple). Use mcp__github_file_ops__delete_files for deleting files (supports deleting single or multiple files atomically), or mcp__github__delete_file for deleting a single file. Edit files locally, and the tool will read the content from the same path on disk.
