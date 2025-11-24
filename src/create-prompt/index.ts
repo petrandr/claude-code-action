@@ -689,7 +689,7 @@ ${!eventData.isPR ? `- Clone target repository: Bash(gh repo clone <owner>/<repo
   - Delete files: Bash(git rm <files>) followed by commit and push
   - Check status: Bash(git status)
   - View diff: Bash(git diff)${eventData.isPR && eventData.baseBranch ? `\n  - IMPORTANT: For PR diffs, use: Bash(git diff origin/${eventData.baseBranch}...HEAD)` : ""}
-${!eventData.isPR ? `- Create Pull Request: Bash(gh pr create --draft --repo <owner>/<repo_name> --title "<title>" --body "<desciptive_commit_message>" --base ${process.env.TARGET_REPO_BASE_BRANCH}) (It is CRITICAL to use --base with branch "${process.env.TARGET_REPO_BASE_BRANCH}")` : ""}
+${!eventData.isPR ? `- Create Pull Request: Bash(gh pr create --draft --label "<comma_seperated_issue_labels>" --repo <owner>/<repo_name> --title "<title>" --body "<desciptive_commit_message>" --base ${process.env.TARGET_REPO_BASE_BRANCH}) (It is CRITICAL to use --base with branch "${process.env.TARGET_REPO_BASE_BRANCH}"), and also to add exact same labels as the issue using the --label` : ""}
 ${!eventData.isPR ? `- Repository Cleanup: Bash(rm -f ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp>)` : ""}`
 }
 - Display the todo list as a checklist in the GitHub comment and mark things off as you go.
