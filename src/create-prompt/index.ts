@@ -675,7 +675,7 @@ ${
   - mcp__github_file_ops__commit_files: {"files": ["path/to/file1.js", "path/to/file2.py"], "message": "feat: add new feature"}
   - mcp__github_file_ops__delete_files: {"files": ["path/to/old.js"], "message": "chore: remove deprecated file"}`
     : `- Use git commands via the Bash tool for version control (remember that you have access to these git commands):
-${!eventData.isPR ? `- Clone target repository: Bash(git clone --branch ${process.env.TARGET_REPO_BASE_BRANCH} --single-branch https://x-access-token:${process.env.GITHUB_TOKEN}/${process.env.GH_HOST}/<owner>/<repo_name> ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp>) (ALWAYS use --branch and --single-branch with specified target branch)` : ""}
+${!eventData.isPR ? `- Clone target repository: Bash(git clone --branch ${process.env.TARGET_REPO_BASE_BRANCH} --single-branch https://x-access-token:<github_token>/${process.env.GH_HOST}/<owner>/<repo_name> ${process.env.RUNNER_TEMP}/<repo_name>_<timestamp>) (ALWAYS use --branch and --single-branch with specified target branch)` : ""}
   - Stage files: Bash(git add <files>)
   - Commit changes: Bash(git commit -m "<message>")
   - Push to remote: Bash(git push origin <branch>) (NEVER force push)
